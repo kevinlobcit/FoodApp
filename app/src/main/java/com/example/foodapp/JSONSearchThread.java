@@ -19,14 +19,10 @@ public class JSONSearchThread extends Thread{
     private String urlQueryStr;
     private String jsonStr;
     private ArrayList<RecipeHolder> recipeBox;
-    private ArrayList<ImageView> ivBox;
-    private ArrayList<TextView> tvBox;
 
-    public JSONSearchThread(String urlQueryStr, ArrayList<ImageView> ivBox, ArrayList<TextView> tvBox) {
+    public JSONSearchThread(String urlQueryStr) {
         this.urlQueryStr = urlQueryStr;
         jsonStr = "";
-        this.ivBox = ivBox;
-        this.tvBox = tvBox;
     }
 
     @Override
@@ -56,7 +52,6 @@ public class JSONSearchThread extends Thread{
             //Start the subthreads which will process the json into recipe json
             System.out.println("Starting Subthreads");
             subthreads();//launch sub threads
-            display();//display images
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -83,14 +78,6 @@ public class JSONSearchThread extends Thread{
 
     public ArrayList<RecipeHolder> getRecipes() {
         return recipeBox;
-    }
-
-    private void display() {
-        for(int i = 0; i < ivBox.size(); i++)
-        {
-            Picasso.get().load(recipeBox.get(i).getImageurl()).into(ivBox.get(i));
-            tvBox.get(i).setText(recipeBox.get(i).getName());
-        }
     }
 }
 

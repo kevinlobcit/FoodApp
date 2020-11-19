@@ -32,8 +32,6 @@ public class SearchActivity extends AppCompatActivity {
         mods.ingredients = intent.getStringExtra("ingred");
         mods.NiR = intent.getStringExtra("NiR");
 
-        displayprep();
-
         try {
             search();
         } catch (IOException e) {
@@ -73,19 +71,21 @@ public class SearchActivity extends AppCompatActivity {
 
     public void getJsonRequest(String urlQueryStr) throws IOException{
         TextView text = this.findViewById(R.id.textView1);
-        JSONSearchThread JSONSearchThread = new JSONSearchThread(urlQueryStr, ivBox, tvBox);
+        JSONSearchThread JSONSearchThread = new JSONSearchThread(urlQueryStr);
         Thread getJsonTh = new Thread(JSONSearchThread);
         try{
             getJsonTh.start(); //Starts mass threads processing the json string
-            //getJsonTh.join();
-            //recipeBox = JSONSearchThread.getRecipes();
+            getJsonTh.join();
+            recipeBox = JSONSearchThread.getRecipes();
+            System.out.println(recipeBox);
+            display();
         }
         catch (Exception InterruptedException) {
             System.out.println("InterruptedException");
         }
     }
 
-    public void displayprep() {
+    public void display() {
         ivBox.add((ImageView) this.findViewById(R.id.imageView1));
         ivBox.add((ImageView) this.findViewById(R.id.imageView2));
         ivBox.add((ImageView) this.findViewById(R.id.imageView3));
@@ -96,19 +96,10 @@ public class SearchActivity extends AppCompatActivity {
         tvBox.add((TextView) this.findViewById(R.id.textView3));
         tvBox.add((TextView) this.findViewById(R.id.textView4));
 
-
-
-        /*
-        Picasso.get().load(recipeBox.get(0).getImageurl()).into(iv1);
-        Picasso.get().load(recipeBox.get(1).getImageurl()).into(iv2);
-        Picasso.get().load(recipeBox.get(2).getImageurl()).into(iv3);
-        Picasso.get().load(recipeBox.get(3).getImageurl()).into(iv4);
-
-        tv1.setText(recipeBox.get(0).getName());
-        tv2.setText(recipeBox.get(1).getName());
-        tv3.setText(recipeBox.get(2).getName());
-        tv4.setText(recipeBox.get(3).getName());
-         */
-
+        for(int i = 0; i < ivBox.size(); i++)
+        {
+            Picasso.get().load(recipeBox.get(i).getImageurl()).into(ivBox.get(i));
+            tvBox.get(i).setText(recipeBox.get(i).getName());
+        }
     }
 }
