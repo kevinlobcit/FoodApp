@@ -2,13 +2,46 @@ package com.example.foodapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class ViewRecipeActivity extends AppCompatActivity {
+
+    ImageView ivReciImage;
+    TextView tvReciName;
+    TextView tvCookTime;
+    TextView tvSourceName;
+    Button btnSource;
+    TextView tvIngredients;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_recipe);
+
+        ivReciImage = this.findViewById(R.id.ivRecipImage);
+        tvReciName = this.findViewById(R.id.tvRecipName);
+        tvCookTime = this.findViewById(R.id.tvCookTime);
+        tvSourceName = this.findViewById(R.id.tvSourceName);
+        btnSource = this.findViewById(R.id.btnSource);
+        tvIngredients = this.findViewById(R.id.tvIngred);
+
+        Intent intent = getIntent();
+        RecipeHolder recipe = intent.getParcelableExtra("recipe");
+
+        Picasso.get().load(recipe.getImageurl()).into(ivReciImage);
+        tvReciName.setText(recipe.getName());
+        tvCookTime.setText("Cooking Time: " + Double.toString(recipe.getCookTime()));
+        tvSourceName.setText("Source: " + recipe.getRecipeSource());
+
+
+
+
     }
 }
