@@ -21,6 +21,10 @@ public class JSONRecipeThreader extends Thread{
             //System.out.println(recipe);
             recipeHold.setName(recipe.getString("label"));
             recipeHold.setImageurl(recipe.getString("image"));
+            recipeHold.setIngredients(recipe.getJSONArray("ingredientLines"));
+            recipeHold.setCookTime(recipe.getDouble("totalTime"));
+            recipeHold.setRecipeSource(recipe.getString("source"));
+            recipeHold.setUrl(recipe.getString("url"));
             //System.out.println(recipe.getString("bookmarked"));
         }
         catch (Exception e) {
