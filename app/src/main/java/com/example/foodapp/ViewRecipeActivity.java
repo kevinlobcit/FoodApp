@@ -35,13 +35,17 @@ public class ViewRecipeActivity extends AppCompatActivity {
         btnSource = this.findViewById(R.id.btnSource);
         tvIngredients = this.findViewById(R.id.tvIngred);
 
+
+
         Intent intent = getIntent();
         RecipeHolder recipe = intent.getParcelableExtra("recipe");
+        String strCookTime = "Cooking Time: " + Double.toString(recipe.getCookTime());
+        String strSourceName = "Source: " + recipe.getRecipeSource();
 
         Picasso.get().load(recipe.getImageurl()).into(ivReciImage);
         tvReciName.setText(recipe.getName());
-        tvCookTime.setText("Cooking Time: " + Double.toString(recipe.getCookTime()));
-        tvSourceName.setText("Source: " + recipe.getRecipeSource());
+        tvCookTime.setText(strCookTime);
+        tvSourceName.setText(strSourceName);
         sourceURL = recipe.getUrl();
     }
 

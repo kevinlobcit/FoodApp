@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">FoodApp</string>
+    <string name="chicken_corn_beef_steak">Chicken Corn Beef Steak</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="not_in_recipe">Not in Recipe</string>
+    <string name="search">Search</string>
+    <string name="blueberry_apple">Blueberry Apple</string>
+    <string name="food">food</string>
+    <string name="textview">TextView</string>
+    <string name="_0_0">0/0</string>
+    <string name="arrowleft">←</string>
+    <string name="arrowright">→</string>
+    <string name="go_to_recipe">Go to Recipe</string>
 </resources>

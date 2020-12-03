@@ -7,13 +7,14 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:autofillHints="Chicken"
         android:id="@+id/editTextIngred"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:ems="10"
-        android:hint="Chicken Corn Beef Steak"
+        android:hint="@string/chicken_corn_beef_steak"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +27,7 @@
         android:id="@+id/tvIngred"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingredients"
+        android:text="@string/ingredients"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.073"
@@ -38,7 +39,7 @@
         android:id="@+id/tvNotin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Not in Recipe"
+        android:text="@string/not_in_recipe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
@@ -52,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:onClick="search"
-        android:text="Search"
+        android:text="@string/search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,13 +61,14 @@
         app:layout_constraintVertical_bias="0.361" />
 
     <EditText
+        android:autofillHints="Blueberry"
         android:id="@+id/editTextNiR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:ems="10"
-        android:hint="Blueberry Apple"
+        android:hint="@string/blueberry_apple"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -56,15 +56,13 @@ public class SearchActivity extends AppCompatActivity implements ViewSearch{
 
     public void onClickLeftRight(View view) throws IOException {
         boolean dontMove = false;
-        switch (view.getId()) {
-            case R.id.btnPrev:
-                currentFrom -= 4;
-                currentTo -= 4;
-                break;
-            case R.id.btnNext:
-                currentFrom += 4;
-                currentTo += 4;
-                break;
+        int id = view.getId();
+        if (id == R.id.btnPrev) {
+            currentFrom -= 4;
+            currentTo -= 4;
+        } else if (id == R.id.btnNext) {
+            currentFrom += 4;
+            currentTo += 4;
         }
 
         if(currentFrom < 0) {
@@ -75,7 +73,8 @@ public class SearchActivity extends AppCompatActivity implements ViewSearch{
 
         if(!dontMove) {
             int displayFrom = currentFrom + 1;
-            tvFromTo.setText(Integer.toString(displayFrom) + "/" + Integer.toString(currentTo));
+            String newtext = Integer.toString(displayFrom) + "/" + Integer.toString(currentTo);
+            tvFromTo.setText(newtext);
 
             presenter.setFromTo(currentFrom, currentTo);
             presenter.search();
@@ -85,19 +84,15 @@ public class SearchActivity extends AppCompatActivity implements ViewSearch{
     public void onClickRecipe(View view) {
         //RecipeHolder selected = recipeBox.get(0);
         RecipeHolder selected = presenter.getRecipe(0);
-        switch (view.getId()) {
-            case R.id.imageView1:
-                selected = presenter.getRecipe(0);
-                break;
-            case R.id.imageView2:
-                selected = presenter.getRecipe(1);
-                break;
-            case R.id.imageView3:
-                selected = presenter.getRecipe(2);
-                break;
-            case R.id.imageView4:
-                selected = presenter.getRecipe(3);
-                break;
+        int id = view.getId();
+        if (id == R.id.imageView1) {
+            selected = presenter.getRecipe(0);
+        } else if (id == R.id.imageView2) {
+            selected = presenter.getRecipe(1);
+        } else if (id == R.id.imageView3) {
+            selected = presenter.getRecipe(2);
+        } else if (id == R.id.imageView4) {
+            selected = presenter.getRecipe(3);
         }
 
         Intent intent = new Intent(this, ViewRecipeActivity.class);
