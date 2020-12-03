@@ -11,4 +11,9 @@
     <string name="arrowleft">←</string>
     <string name="arrowright">→</string>
     <string name="go_to_recipe">Go to Recipe</string>
+    <string name="tree_nut_free">Tree Nut Free</string>
+    <string name="vegan">Vegan</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="peanut_free">Peanut Free</string>
+    <string name="alcohol_free">Alcohol Free</string>
 </resources>
