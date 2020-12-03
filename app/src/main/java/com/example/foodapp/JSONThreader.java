@@ -13,7 +13,7 @@ public class JSONThreader extends Thread{
     private JSONObject jsonObject;
     private JSONArray jsonHits;
     public JSONThreader(String jsonStr) throws JSONException {
-        recipeBox = new ArrayList<RecipeHolder>();
+        recipeBox = new ArrayList<>();
         jsonObject = new JSONObject(jsonStr);
         jsonHits = jsonObject.getJSONArray("hits");
     }

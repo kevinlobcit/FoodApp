@@ -18,8 +18,6 @@ public class ViewRecipeActivity extends AppCompatActivity {
     TextView tvReciName;
     TextView tvCookTime;
     TextView tvSourceName;
-    Button btnSource;
-    TextView tvIngredients;
 
     String sourceURL;
 
@@ -32,10 +30,6 @@ public class ViewRecipeActivity extends AppCompatActivity {
         tvReciName = this.findViewById(R.id.tvRecipName);
         tvCookTime = this.findViewById(R.id.tvCookTime);
         tvSourceName = this.findViewById(R.id.tvSourceName);
-        btnSource = this.findViewById(R.id.btnSource);
-        tvIngredients = this.findViewById(R.id.tvIngred);
-
-
 
         Intent intent = getIntent();
         RecipeHolder recipe = intent.getParcelableExtra("recipe");

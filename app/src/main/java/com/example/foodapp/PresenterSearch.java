@@ -16,8 +16,8 @@ public class PresenterSearch {
 
     public SearchModifiers mods;
     public ArrayList<RecipeHolder> recipeBox;
-    public ArrayList<ImageView> ivBox = new ArrayList<ImageView>();
-    public ArrayList<TextView> tvBox = new ArrayList<TextView>();
+    public ArrayList<ImageView> ivBox = new ArrayList<>();
+    public ArrayList<TextView> tvBox = new ArrayList<>();
 
     int currentFrom;
     int currentTo;
@@ -58,11 +58,23 @@ public class PresenterSearch {
         urlBuilder.addQueryParameter("to", String.valueOf(currentTo));
         urlBuilder.addQueryParameter("q", mods.ingredients);
 
+        if(mods.treenutfree == true)
+            urlBuilder.addQueryParameter("health", "tree-nut-free");
+        if(mods.peanutfree == true)
+            urlBuilder.addQueryParameter("health", "peanut-free");
+        if(mods.vegetarian == true)
+            urlBuilder.addQueryParameter("health", "vegetarian");
+        if(mods.vegan == true)
+            urlBuilder.addQueryParameter("health", "vegan");
+        if(mods.alcoholfree == true)
+            urlBuilder.addQueryParameter("health", "alcohol-free");
+
+
         String ingredNiR = mods.NiR;
         String[] NiRList = ingredNiR.split(" ");
-        for(int i = 0; i < NiRList.length; i++) {
+        for (String s : NiRList) {
             //prepNiR += "excluded=" + NiRList[i] + "&";
-            urlBuilder.addQueryParameter("excluded", NiRList[i]);
+            urlBuilder.addQueryParameter("excluded", s);
         }
 
         return urlBuilder.build().toString();

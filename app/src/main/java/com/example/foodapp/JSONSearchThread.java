@@ -1,12 +1,5 @@
 package com.example.foodapp;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
