@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ModelSearch {
     //need to update to get a more efficient way of getting json instead of spamming
     //the json server to get the next recipes
-    public ArrayList<RecipeHolder> getJsonRequest(String urlQueryStr) throws IOException {
+    public ArrayList<RecipeHolder> getJsonRequest(String urlQueryStr) {
         JSONSearchThread JSONSearchThread = new JSONSearchThread(urlQueryStr);
         Thread getJsonTh = new Thread(JSONSearchThread);
         try{

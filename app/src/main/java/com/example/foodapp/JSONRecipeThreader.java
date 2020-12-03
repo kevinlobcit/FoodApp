@@ -2,11 +2,6 @@ package com.example.foodapp;
 
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Scanner;
-
 public class JSONRecipeThreader extends Thread{
     private JSONObject recipe;
     RecipeHolder recipeHold;

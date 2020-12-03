@@ -6,15 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Picasso;
-
 import java.io.IOException;
-import java.util.ArrayList;
-
-import okhttp3.HttpUrl;
 
 public class SearchActivity extends AppCompatActivity implements ViewSearch{
 
@@ -32,9 +25,11 @@ public class SearchActivity extends AppCompatActivity implements ViewSearch{
 
         Intent intent = getIntent();
 
-        mods = new SearchModifiers();
-        mods.ingredients = intent.getStringExtra("ingred");
-        mods.NiR = intent.getStringExtra("NiR");
+        mods = intent.getParcelableExtra("modifiers");
+        System.out.println(mods);
+        //mods = new SearchModifiers();
+        //mods.ingredients = intent.getStringExtra("ingred");
+        //mods.NiR = intent.getStringExtra("NiR");
 
         //MVP
         ModelSearch model = new ModelSearch();
