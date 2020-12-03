@@ -3,7 +3,9 @@ package com.example.foodapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     Button btnSource;
     TextView tvIngredients;
 
+    String sourceURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +42,14 @@ public class ViewRecipeActivity extends AppCompatActivity {
         tvReciName.setText(recipe.getName());
         tvCookTime.setText("Cooking Time: " + Double.toString(recipe.getCookTime()));
         tvSourceName.setText("Source: " + recipe.getRecipeSource());
-
-
-
-
+        sourceURL = recipe.getUrl();
     }
+
+    public void viewSource(View view) {
+        System.out.println("stuff");
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(sourceURL));
+        startActivity(browserIntent);
+    }
+
+
 }
