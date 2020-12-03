@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.096"
+        android:src="@drawable/ic_launcher_background"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -32,6 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.096"
+        android:src="@drawable/ic_launcher_background"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -45,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.52"
+        android:src="@drawable/ic_launcher_background"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
@@ -61,6 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.501"
+        android:src="@drawable/ic_launcher_background"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView

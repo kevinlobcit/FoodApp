@@ -55,6 +55,7 @@ public class SearchActivity extends AppCompatActivity implements ViewSearch{
     }
 
     public void onClickLeftRight(View view) throws IOException {
+        boolean dontMove = false;
         switch (view.getId()) {
             case R.id.btnPrev:
                 currentFrom -= 4;
@@ -65,11 +66,20 @@ public class SearchActivity extends AppCompatActivity implements ViewSearch{
                 currentTo += 4;
                 break;
         }
-        int displayFrom = currentFrom + 1;
-        tvFromTo.setText(Integer.toString(displayFrom) + "/" + Integer.toString(currentTo));
 
-        presenter.setFromTo(currentFrom, currentTo);
-        presenter.search();
+        if(currentFrom < 0) {
+            currentFrom += 4;
+            currentTo += 4;
+            dontMove = true;
+        }
+
+        if(!dontMove) {
+            int displayFrom = currentFrom + 1;
+            tvFromTo.setText(Integer.toString(displayFrom) + "/" + Integer.toString(currentTo));
+
+            presenter.setFromTo(currentFrom, currentTo);
+            presenter.search();
+        }
     }
 
     public void onClickRecipe(View view) {
