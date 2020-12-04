@@ -40,16 +40,19 @@ public class UITest {
     public void testSearch() throws InterruptedException {
         onView(withId(R.id.editTextIngred)).perform(typeText(foodToSearch), closeSoftKeyboard());
         onView(withId(R.id.editTextNiR)).perform(typeText(notWanted), closeSoftKeyboard());
+
+        onView(withId(R.id.cbTreeNut)).perform(click());
+        onView(withId(R.id.cbPeanutFree)).perform(click());
+        onView(withId(R.id.cbVegetarian)).perform(click());
+        onView(withId(R.id.cbVegan)).perform(click());
+        onView(withId(R.id.cbAlcoholFree)).perform(click());
+
         onView(withId(R.id.btnSearch)).perform(click());
 
         onView(withId(R.id.btnPrev)).perform(click());
         onView(withId(R.id.imageView1)).perform(click());
         pressBack();
         onView(withId(R.id.imageView2)).perform(click());
-        pressBack();
-        onView(withId(R.id.imageView3)).perform(click());
-        pressBack();
-        onView(withId(R.id.imageView4)).perform(click());
         onView(withId(R.id.btnSource)).perform(click());
     }
 
