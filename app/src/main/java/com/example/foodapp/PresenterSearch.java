@@ -1,5 +1,8 @@
 package com.example.foodapp;
 
+import android.content.Intent;
+import android.os.Parcelable;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -98,5 +101,22 @@ public class PresenterSearch {
         return recipeBox.get(recipNum);
     }
 
+    public void viewRecipe(View viewimage) {
+        RecipeHolder selected = recipeBox.get(0);
+        int id = viewimage.getId();
+        if (id == R.id.imageView1) {
+            selected = recipeBox.get(0);
+        } else if (id == R.id.imageView2) {
+            selected = recipeBox.get(1);
+        } else if (id == R.id.imageView3) {
+            selected = recipeBox.get(2);
+        } else if (id == R.id.imageView4) {
+            selected = recipeBox.get(3);
+        }
+
+        Intent intent = new Intent(view, ViewRecipeActivity.class);
+        intent.putExtra("recipe", (Parcelable) selected);
+        view.startActivityForResult(intent, 0);
+    }
 
 }

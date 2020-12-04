@@ -77,21 +77,6 @@ public class SearchActivity extends AppCompatActivity implements ViewSearch{
     }
 
     public void onClickRecipe(View view) {
-        //RecipeHolder selected = recipeBox.get(0);
-        RecipeHolder selected = presenter.getRecipe(0);
-        int id = view.getId();
-        if (id == R.id.imageView1) {
-            selected = presenter.getRecipe(0);
-        } else if (id == R.id.imageView2) {
-            selected = presenter.getRecipe(1);
-        } else if (id == R.id.imageView3) {
-            selected = presenter.getRecipe(2);
-        } else if (id == R.id.imageView4) {
-            selected = presenter.getRecipe(3);
-        }
-
-        Intent intent = new Intent(this, ViewRecipeActivity.class);
-        intent.putExtra("recipe", (Parcelable) selected);
-        this.startActivityForResult(intent, 0);
+        presenter.viewRecipe(view);
     }
 }
